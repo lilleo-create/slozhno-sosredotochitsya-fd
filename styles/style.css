@@ -3,3 +3,60 @@
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 }
+
+
+.header {
+  display: grid;
+  justify-content: end; /* Сдвигаем содержимое вправо */
+  align-items: start; /* Выравниваем по верхнему краю */
+  padding-block-end: 40px;
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+}
+
+.theme-light .rec {
+  display:
+}
+
+
+.rec {
+  position: absolute;
+  top: 10px;
+  right: 38px;
+  font-weight: bold;
+  color: red;
+  font-size: 14px;
+  text-transform: uppercase;  
+  
+}
+
+.rec::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 19px;
+  width: 9px;
+  height: 9px;
+  background: red;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.8);
+}
+
+
+.header__theme-menu-list {
+  margin-top: 39px; /* Отодвигаем меню вниз */
+  
+}
+
+.header__theme-menu-button {
+  background: none;
+  border: none;
+  inline-size: 70px;
+  block-size: 26px;
+  padding: 0
+}
+
+.header__theme-menu-item {
+
+}
+
