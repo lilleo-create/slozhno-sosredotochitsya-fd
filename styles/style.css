@@ -3,8 +3,9 @@
 .page {
   background-image: var(--background-image);
   background-attachment: fixed;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 }
 
@@ -57,7 +58,7 @@
 .rec {
   font-size: 1.8em;
   padding-top: 10px;
-  padding-right: 19px;
+  padding-right: 9px;
   color: var(--accent-color);
   text-transform: uppercase;
   display: flex;
@@ -94,7 +95,6 @@
   flex-direction: column;
   gap: 55px;
   align-items: center;
-  padding-inline: 10px;
 }
 
 .header__title {
@@ -103,6 +103,7 @@ font-weight: var(--bold-font-weight);
 color: var(--header-title-color);
 text-shadow: 4px 4px 0 var(--accent-color);
 line-height: 83%;
+align-self: flex-start;
 }
 
 .header__subtitle {
@@ -110,6 +111,7 @@ line-height: 83%;
   max-inline-size: 355px;
   min-block-size: 117px;
   font-size: 1.8em;
+  line-height: var(--line-height-sl);
   background-color: var(--accent-color);
   color: var(--background-color);
   
@@ -134,7 +136,6 @@ line-height: 83%;
 .difficulty,
 .distraction,
 .tips,
-.tips__list,
 .gallery,
 .gallery__content {
     display: flex;
@@ -160,6 +161,7 @@ line-height: 83%;
   color: var(--text-color);
   line-height: var(--line-height-big);
   font-size: 1.8em;
+  font-weight: var(--font-weight);
 }
 
 
@@ -173,12 +175,17 @@ line-height: 83%;
   background-color: var(--accent-color);
   line-height: var(--line-height-big);
   font-size: 1.8em;
+  margin-block-end: 10px;
 }
 
 .tip__text{
   color: var(--text-color);
   font-size: 1.8em;
   line-height: var(--line-height-big);
+}
+
+.tips__list > *:not(:last-child):nth-of-type(tip__title) {
+  margin-block-end: 20px;
 }
 
 
@@ -201,6 +208,16 @@ line-height: 83%;
   min-block-size: 668px;
   min-inline-size: 375px;
   position: relative;
+}
+
+/* -- Footer -- */
+
+.footer {
+  min-block-size: 100vh;
+}
+
+.footer__title {
+  align-self: center;
 }
 
 .footer::before,
@@ -228,6 +245,9 @@ line-height: 83%;
 /* -- Media -- */
 
 @media (width >= 768px) {
+  .main {
+    padding-inline: 20px;
+  }
 
   .header__content {
     gap: 162px;
@@ -238,12 +258,14 @@ line-height: 83%;
     min-block-size: 117px;
     text-align: left;
     align-self: flex-end;
+    line-height: var(--line-height-big);
   }
 
+ 
+   
   .difficulty,  .tips {
     display: grid;
     grid-template-columns:1fr 2fr;
-    gap: 20px;
   }
 
   .title-decor {
@@ -259,6 +281,8 @@ line-height: 83%;
   .difficulty .article__title {
     margin-block-end: 10px;
   }
+  
+  
 
   .gallery__content {
     display: grid;
@@ -270,6 +294,7 @@ line-height: 83%;
     "cassette street street";
     gap: 20px; 
 }
+
 .gallery__image {
   height: 100%; 
 }
@@ -297,7 +322,56 @@ line-height: 83%;
   }
 
 
+  @media (width >= 1024px) {
+    .header {
+      padding-inline: 0;
+    }
+
+    .header__content {
+      gap: 114px;
+    }
+
+    .header__title {
+      font-size: var(--desktop-title-text);
+    }
+
+    .header__subtitle {
+
+      max-inline-size: 491px;
+      min-block-size: 71px;
+      margin-inline-end: 20px;
+      line-height: var(--line-height-big);
+    }
+
+    .difficulty,
+    .distraction,
+    .tips,
+    .gallery {
+      padding-block-end: 80px;
+    }
+
+
+    .distraction {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
+      grid-template-rows: auto auto;
+    }
+    .distraction .title-decor {
+      grid-column: 1 / -1; /* Заголовок растягивается на всю ширину */
+      grid-row: 1; /* Первая строка */
+      text-align: left;
+    }
+
+    .title-decor {
+      max-width: 314px;
+    }
   
+    .distraction .article {
+      grid-row: 2; /* Все статьи идут во вторую строку */
+      grid-column: auto; /* Позволяет автоматически распределить статьи */
+    }
 
 
 }
+
+
