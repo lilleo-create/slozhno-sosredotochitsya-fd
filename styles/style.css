@@ -1,10 +1,26 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  background-image: var(--background-image-header);
+  background-image: var(--background-image);
   background-attachment: fixed;
   background-size: cover;
+  background-position: center;
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+}
+
+/* -- Header --*/
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr; 
+  grid-template-rows: repeat(2, min-content);
+  padding-block-end: 66px;
+  margin-block-end: 40px;
+  padding-inline: 10px;
+  min-block-size: 100vh;
+  min-inline-size: 375px;
+  position: relative;
+  gap: 65px;
 }
 
 .header::before,
@@ -18,26 +34,15 @@
 .header::before {
   top: 10px;
   right: 10px;
-  border-top: 2px solid var(--accent-color);
-  border-right: 2px solid var(--accent-color);
+  border-top: 2px solid var(--decorative-corner);
+  border-right: 2px solid var(--decorative-corner);
 }
 
 .header::after {
   bottom: 10px;
   left: 10px;
-  border-bottom: 2px solid var(--accent-color);
-  border-left: 2px solid var(--accent-color);
-}
-
-.header {
-  display: grid;
-  grid-template-columns: 1fr; 
-  grid-template-rows: min-content repeat(3, 1fr) min-content;
-  padding-inline: 10px;
-  min-block-size: 668px;
-  min-inline-size: 375px;
-  position: relative;
-  gap: 65px;
+  border-bottom: 2px solid var(--decorative-corner);
+  border-left: 2px solid var(--decorative-corner);
 }
 
 
@@ -49,20 +54,17 @@
   gap: 10px;
 }
 
-
-
-
 .rec {
-  font-size: 1.8rem;
+  font-size: 1.8em;
   padding-top: 10px;
   padding-right: 19px;
-  font-weight: 400;
   color: var(--accent-color);
   text-transform: uppercase;
   display: flex;
   align-items: center;  
-justify-content: end;
+  justify-content: end;
   gap: 10px;
+  line-height: 25px;
 }
 
 .rec::after {
@@ -81,7 +83,9 @@ justify-content: end;
   inline-size: 70px;
   color: var(--accent-color);
   block-size: 26px;
-  font-size: 1.8rem;
+  font-size: var(--button-text-size);
+  text-transform: lowercase;
+  line-height: var(--line-height-sl);
   padding: 0
 }
 
@@ -98,15 +102,202 @@ font-size: var(--mobile-title-text);
 font-weight: var(--bold-font-weight);
 color: var(--header-title-color);
 text-shadow: 4px 4px 0 var(--accent-color);
+line-height: 83%;
 }
 
 .header__subtitle {
   font-weight: var(--bold-font-weight);
-  font-size: 1.8rem;
+  max-inline-size: 355px;
+  min-block-size: 117px;
+  font-size: 1.8em;
   background-color: var(--accent-color);
   color: var(--background-color);
   
 }
 
+.header__theme-menu-button_active {
+  pointer-events: none;
+}
 
 
+
+/* -- Main -- */
+
+.main {
+    display: grid;
+    padding-inline: 10px;
+}
+
+/* -- Оформление секций -- */
+
+
+.difficulty,
+.distraction,
+.tips,
+.tips__list,
+.gallery,
+.gallery__content {
+    display: flex;
+    flex-direction: column;
+    padding-block-end: 50px;
+    gap: 20px
+}
+
+.title-decor {
+    color: var(--accent-color);
+    font-weight: var(--bold-font-weight);
+    line-height: var(--line-height-big);
+    font-size: 1.8em;
+}
+
+.article__title {
+  color: var(--background-color);
+  background-color: var(--accent-color);
+  line-height: var(--line-height-big);
+  font-size: 1.8em;
+}
+.article__text {
+  color: var(--text-color);
+  line-height: var(--line-height-big);
+  font-size: 1.8em;
+}
+
+
+.tips__title {
+  background-color: var(--accent-color);
+  font-size: 1.8em;
+  line-height: var(--line-height-big);
+}
+
+.tip__title {
+  background-color: var(--accent-color);
+  line-height: var(--line-height-big);
+  font-size: 1.8em;
+}
+
+.tip__text{
+  color: var(--text-color);
+  font-size: 1.8em;
+  line-height: var(--line-height-big);
+}
+
+
+/* Галерея */
+
+
+
+.gallery__image {
+    width: 100%;
+    height: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 668px;
+  min-inline-size: 375px;
+  position: relative;
+}
+
+.footer::before,
+.footer::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+}
+
+.footer::before {
+  top: 10px;
+  right: 10px;
+  border-top: 2px solid var(--decorative-corner);
+  border-right: 2px solid var(--decorative-corner);
+}
+
+.footer::after {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 2px solid var(--decorative-corner);
+  border-left: 2px solid var(--decorative-corner);
+}
+
+/* -- Media -- */
+
+@media (width >= 768px) {
+
+  .header__content {
+    gap: 162px;
+  }
+
+  .header__subtitle {
+    max-inline-size: 364px;
+    min-block-size: 117px;
+    text-align: left;
+    align-self: flex-end;
+  }
+
+  .difficulty,  .tips {
+    display: grid;
+    grid-template-columns:1fr 2fr;
+    gap: 20px;
+  }
+
+  .title-decor {
+    text-align: start;
+    max-width: 236px;
+  }
+
+  .article {
+      grid-column-start: 2; /* Начинаем со второй колонки */
+      grid-column-end: auto;
+  }
+  
+  .difficulty .article__title {
+    margin-block-end: 10px;
+  }
+
+  .gallery__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+    "sunset sunset ice-cream"
+    "cassette books ice-cream"
+    "cassette street street";
+    gap: 20px; 
+}
+.gallery__image {
+  height: 100%; 
+}
+
+.image-sunset {
+  grid-area: sunset;
+}
+
+.image-ice-cream {
+  grid-area: ice-cream;
+}
+
+.image-cassette {
+  grid-area: cassette;
+}
+
+.image-books {
+  grid-area: books;
+}
+
+.image-street {
+  grid-area: street;
+}
+
+  }
+
+
+  
+
+
+}

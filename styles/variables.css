@@ -10,8 +10,9 @@
   --font-family: "IBM Plex mono";
   --font-weight: 400;
   --bold-font-weight: 700;
-
-
- 
+  --button-text-size: 1.8em;
+  --line-height-sl: 0.95;
+  --line-height-big: 1.24 ;
+  
 }
 

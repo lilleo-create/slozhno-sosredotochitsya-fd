@@ -14,10 +14,18 @@
   --accent-color: #FF0070;
   --header-title-color: #DB00FF;
   --button-text-color: #ff0070;
-  --background-image-header: url(../images/cover-image-dark.png)
+  --decorative-corner: #FF0070;
+  --background-image: url(../images/cover-image-dark.png)
 }
 
 .theme-dark .page {
+  --background-color: #000028;
+  --text-color: #F1B2CE;
+  --accent-color: #FF0070;
+  --header-title-color: #DB00FF;
+  --button-text-color: #ff0070;
+  --decorative-corner: #FF0070;
+  --background-image: url(../images/cover-image-dark.png)
   /* Вам также нужно будет написать ряд подобных селекторов */
 
 }
