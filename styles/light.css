@@ -16,8 +16,30 @@
   --button-text-color: #353430;
   --background-image: url(../images/cover-image-light.png);
   --decorative-corner: #353430;
+  --button-hover-color: #32312D66;
 }
 
 .theme-light .page {
+  --background-color: #FFF1F7;
+  --text-color: #353430;
+  --accent-color: #FF8DCB;
+  --header-title-color: #FFC2E6;
+  --button-text-color: #353430;
+  --background-image: url(../images/cover-image-light.png);
+  --decorative-corner: #353430;
+  --button-hover-color: #32312D66;  
   /* Вам также нужно будет написать ряд подобных селекторов */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #FFF1F7;
+  --text-color: #353430;
+  --accent-color: #FF8DCB;
+  --header-title-color: #FFC2E6;
+  --button-text-color: #353430;
+  --background-image: url(../images/cover-image-light.png);
+  --decorative-corner: #353430;
+  --button-hover-color: #32312D66; 
+  }
 }

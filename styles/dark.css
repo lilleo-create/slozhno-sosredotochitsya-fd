@@ -14,6 +14,7 @@
   --accent-color: #FF0070;
   --header-title-color: #DB00FF;
   --button-text-color: #ff0070;
+  --button-hover-color: #FF007066;
   --decorative-corner: #FF0070;
   --background-image: url(../images/cover-image-dark.png)
 }
@@ -24,8 +25,11 @@
   --accent-color: #FF0070;
   --header-title-color: #DB00FF;
   --button-text-color: #ff0070;
+  --button-hover-color: #FF007066;
   --decorative-corner: #FF0070;
   --background-image: url(../images/cover-image-dark.png)
   /* Вам также нужно будет написать ряд подобных селекторов */
 
 }
+
+
