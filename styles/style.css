@@ -1,6 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
+  background-color: var(--background-color);
   background-image: var(--background-image);
   background-repeat: no-repeat;
   background-position: center;
@@ -14,8 +15,8 @@
 .header {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr; 
-  grid-template-rows: auto 1fr auto;;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content auto ;
   margin-inline: 10px;
   margin-block-end: var(--header-padding);
   min-block-size: 100vh;
@@ -42,26 +43,28 @@
   border-left: 2px solid var(--decorative-corner);
 }
 
-.header__theme-menu-list {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  gap: 10px;
-  padding-top: 39px;
-}
+
+/* -- Надпись "REC" -- */
+
 
 .header__rec {
-  display: flex;  
-  justify-content: end;
+  position: absolute;
+  right: 0;
+  display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+  color: var(--accent-color);
   padding-top: 20px;
   padding-right: 9px;
-  color: var(--accent-color);
   font-size: 1.717rem;
-  line-height: 25px;
+  line-height: var(--line-height-sl);
   text-transform: uppercase;
   max-block-size: 26px;
+}
+
+.header__rec::before {
+  content: "REC";
+  
 }
 
 .header__rec::after {
@@ -69,14 +72,29 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  box-shadow: 0 0 10px 5px var(--accent-color);
+  box-shadow: 0 0 9px 4px var(--accent-color);
   background: var(--accent-color);
+}
+
+/* -- Кнопки меню */
+
+.header__theme-menu {
+  grid-row: 1;
+  padding-block-start: 75px;
+}
+
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
 }
 
 .header__theme-menu-button {
   border: none;
   padding: 0;
-  color: var(--accent-color);
+  color: var(--decorative-corner);
   font-size: var(--button-text-size);
   line-height: var(--line-height-sl);
   letter-spacing: 1px;
@@ -87,20 +105,22 @@
   block-size: 26px;
 }
 
+
+/* -- Контент шапки -- */
+
 .header__content {
   display: flex;
   flex-direction: column;
   grid-row: 2;
-  align-items: center;
   gap: 55px;
-  margin-block: auto;
+  justify-content: center;
 }
 
 .header__title {
   align-self: flex-start;
-  margin-block: auto;
   color: var(--header-title-color);
   font-weight: var(--bold-font-weight);
+  line-height: 83%;
   font-size: var(--size-title-text);
   text-shadow: 4px 4px 0 var(--accent-color);
 }
@@ -138,8 +158,7 @@
 
 .difficulty,
 .distraction,
-.tips,
-.gallery {
+.tips {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -189,31 +208,37 @@
   background-color: var(--accent-color);
 }
 
-.tip__text{
+.tip__text {
   color: var(--text-color);
   font-size: 1.717rem;
   line-height: var(--line-height-big);
 }
+
 
 .tip__text:not(:last-child) {
   margin-block-end: 20px;
 }
 
 
-
-
-
 /* Галерея */
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-block-end: var(--header-padding)
+}
 
 .gallery__image {
   width: 100%;
-  height: 100%;
   height: auto;
   object-fit: cover;
 }
 
-.gallery__image:not(:last-child) {
-  margin-block-end: 10px;
+.gallery__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .gallery__title {
@@ -246,10 +271,9 @@
   border-right: 2px solid var(--decorative-corner);
 }
 
-
 .footer__title {
   align-self: center;
-}
+} 
 
 /* -- link в тексте -- */
 
@@ -258,7 +282,7 @@
   text-shadow: 1.6px 1.5px 0 var(--accent-color);
 }
 .link:hover {
-  border: none; 
+  border: none;
   border-bottom: 1px solid var(--text-color);
   outline: none;
 }
@@ -270,12 +294,27 @@
 /* -- Media -- */
 
 @media (width >= 768px) {
-  .main {
-    padding-inline: 20px;
+  .header {
+    margin-inline-start: 0;
+    margin-inline-end: 20px;
+    padding-block-start: 20px;
   }
 
-  .header {
-    margin-inline: 20px;
+  .decorated-zone::before {
+    top: 20px;
+  }
+  
+  .decorated-zone::after {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .header__rec {
+    top: 10px;
+  }
+
+  .header__theme-menu {
+    padding-block-start: 192px;
   }
 
   .header__content {
@@ -286,12 +325,16 @@
     align-self: flex-end;
     line-height: var(--line-height-big);
     text-align: left;
-    min-inline-size: 364px;
+    max-inline-size: 364px;
+  }
+
+  .main {
+    padding-inline: 20px;
   }
 
   .difficulty,  .tips {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: minmax(236px, 1fr) minmax(472px, 2fr);
   }
 
   .title-decor {
@@ -308,6 +351,10 @@
     margin-block-end: 10px;
   }
 
+  .gallery {
+    gap: 20px;
+  }
+
   .gallery__content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -316,11 +363,14 @@
     "sunset sunset ice-cream"
     "cassette books ice-cream"
     "cassette street street";
-    gap: 20px; 
+    gap: 20px;
   }
 
   .gallery__image {
-    height: 100%; 
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .image-sunset {
@@ -350,19 +400,23 @@
   .footer__title {
     font-size: var(--size-title-text);
   }
+
+  .footer::after {
+    left: 0;
+    bottom: 20px;
+  }
 }
 
 
 @media (width >= 1024px) {
-  .header {
-  }
-  
+
   .header__theme-menu {
     display: grid;
     grid-row: 1;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 0;
+    padding-left: 20px;
   }
   
   .header__theme-menu-list {
@@ -379,6 +433,7 @@
   .header__content {
     gap: 114px;
     line-height: 130%;
+    padding-top: 155px;
   }
 
   .header__title {
@@ -388,6 +443,11 @@
   .header__subtitle {
     line-height: var(--line-height-big);
     max-inline-size: 491px;
+  }
+
+  .difficulty,  .tips {
+    display: grid;
+    grid-template-columns: minmax(236px, 315px) 2fr;
   }
 
   .distraction {
