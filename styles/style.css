@@ -33,14 +33,14 @@
 .decorated-zone::before {
   top: 10px;
   right: 0;
-  border-top: 2px solid var(--decorative-corner);
-  border-right: 2px solid var(--decorative-corner);
+  border-top: 1px solid var(--decorative-corner);
+  border-right: 1px solid var(--decorative-corner);
 }
 
 .decorated-zone::after {
   bottom: 10px;
-  border-bottom: 2px solid var(--decorative-corner);
-  border-left: 2px solid var(--decorative-corner);
+  border-bottom: 1px solid var(--decorative-corner);
+  border-left: 1px solid var(--decorative-corner);
 }
 
 
@@ -53,26 +53,24 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-top: 20px;
+  padding-top: 14px;
   padding-right: 9px;
   color: var(--accent-color);
   font-size: 1.717rem;
   line-height: var(--line-height-sl);
   text-transform: uppercase;
-  max-block-size: 26px;
 }
 
 .header__rec::before {
   content: "REC";
-  
 }
 
 .header__rec::after {
   content: "";
   width: 9px;
   height: 9px;
-  border-radius: 50%;
-  box-shadow: 0 0 9px 4px var(--accent-color);
+  border-radius: 100%;
+  box-shadow: 0 0 4px 2px var(--accent-color);
   background: var(--accent-color);
 }
 
@@ -118,6 +116,9 @@
 
 .header__title {
   align-self: flex-start;
+}
+
+.main-title {
   color: var(--header-title-color);
   font-weight: var(--bold-font-weight);
   font-size: var(--size-title-text);
@@ -134,20 +135,23 @@
 }
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--accent-color);
+  outline: 1px solid var(--decorative-corner);
   pointer-events: none;
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid var(--button-hover-color);
+  outline: 1px solid var(--button-hover-color);
 }
 
 .header__theme-menu-button:focus {
-  border: none;
-  border-bottom: 2px solid var(--text-color);
   outline: none;
 }
 
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--decorative-corner);
+  outline: none;
+}
 
 /* -- Main -- */
 
@@ -229,6 +233,12 @@
   gap: 10px;
 }
 
+.gallery__item {
+  display: flex;
+  height: 100%;
+}
+
+
 .gallery__title {
   margin: 0;
 }
@@ -246,19 +256,6 @@
   min-block-size: 100vh;
 }
 
-.footer::after {
-  bottom: 10px;
-  left: 0;
-  border-bottom: 2px solid var(--decorative-corner);
-  border-left: 2px solid var(--decorative-corner);
-}
-
-.footer::before {
-  top: 10px;
-  border-top: 2px solid var(--decorative-corner);
-  border-right: 2px solid var(--decorative-corner);
-}
-
 .footer__title {
   align-self: center;
 } 
@@ -274,7 +271,12 @@
   border-bottom: 1px solid var(--text-color);
   outline: none;
 }
+
 .link:focus {
+  outline: none;
+}
+
+.link:focus-visible {
   outline: 1px solid var(--text-color);
   text-decoration: none;
 }
@@ -320,7 +322,7 @@
 
   .difficulty,  .tips {
     display: grid;
-    grid-template-columns:  auto-fill minmax(236px, 1fr) minmax(472px, 2fr);
+    grid-template-columns: minmax(236px, 1fr) minmax(472px, 2fr);
   }
 
   .title-decor {
@@ -331,7 +333,6 @@
   .article {
     grid-column-start: 2;
     grid-column-end: auto;
-
   }
   
   .distraction__content {
@@ -353,25 +354,26 @@
     gap: 20px;
   }
 
-  .image-sunset {
+  .gallery__item.image-sunset {
     grid-area: sunset;
   }
-
-  .image-ice-cream {
+  
+  .gallery__item.image-ice-cream {
     grid-area: ice-cream;
   }
-
-  .image-cassette {
+  
+  .gallery__item.image-cassette {
     grid-area: cassette;
   }
-
-  .image-books {
+  
+  .gallery__item.image-books {
     grid-area: books;
   }
-
-  .image-street {
+  
+  .gallery__item.image-street {
     grid-area: street;
   }
+  
 
   .footer {
     margin-inline: 20px;
@@ -379,11 +381,6 @@
 
   .footer__title {
     font-size: var(--size-title-text);
-  }
-
-  .footer::after {
-    bottom: 20px;
-    left: 0;
   }
 }
 
@@ -422,7 +419,9 @@
   }
   
   .distraction .article {
-    flex: 1 1 315px;
+    flex:1 1 calc((100% - 40px) / 3);
+    max-width: 315px;
+    justify-content: flex-start;
   }
 
 
