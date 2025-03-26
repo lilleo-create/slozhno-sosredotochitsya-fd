@@ -35,9 +35,11 @@
   --section-title-color: #353430;
   --out-color: #353430;
   }
-  .header__rec {
+
+  .theme-auto .header__rec {
     display: none;
   }
-
 }
+
+
 

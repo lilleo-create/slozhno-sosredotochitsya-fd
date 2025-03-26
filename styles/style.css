@@ -160,9 +160,7 @@
   padding-inline: 10px;
 }
 
-.difficulty,
-.distraction,
-.tips {
+.content-block {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -174,6 +172,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
 
 .article {
@@ -207,7 +206,7 @@
   margin-block-end: 10px;
 }
 
-.article__regular {
+.article__subtitle {
   font-weight: var(--font-weight);
 }
 
@@ -264,8 +263,9 @@
 
 .link {
   text-decoration: none;
-  text-shadow: 1.6px 1.5px 0 var(--accent-color);
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
+
 .link:hover {
   border: none;
   border-bottom: 1px solid var(--text-color);
@@ -320,7 +320,7 @@
     padding-inline: 20px;
   }
 
-  .difficulty,  .tips {
+  .section-grid {
     display: grid;
     grid-template-columns: minmax(236px, 1fr) minmax(472px, 2fr);
   }
@@ -406,7 +406,7 @@
     line-height: 130%;
   }
 
-  .difficulty, .tips {
+  .section-grid {
     grid-template-columns: 315px minmax(472px, 2fr);
   }
 
